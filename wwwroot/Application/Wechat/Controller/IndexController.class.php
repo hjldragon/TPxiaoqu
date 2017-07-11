@@ -20,9 +20,13 @@ class IndexController extends WechatController
         //var_dump(1);exit;
         $this->login();
         //$user=D('Member');
-        //var_dump(session('user_auth')['username']);exit;
+        //var_dump(session('user_auth'));exit;
+
        $list = session('user_auth');
+        $model=M('Member')->where(array('uid'=>$list['uid']))->find();
+        //var_dump($model);exit;
       //var_dump($list['username']);exit;
+        $this->assign('model',$model);
        $this->assign('list',$list);
                 $this->display('my');
 

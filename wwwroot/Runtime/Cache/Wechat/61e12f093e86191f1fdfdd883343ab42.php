@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>Bootstrap 101 Template</title>
+    <title>小区活动</title>
 
     <!-- Bootstrap -->
     <link href="Public/Wechat/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -43,19 +43,19 @@
     </nav>
     <!--导航结束-->
 
-    <div class="container-fluid">
+    <div class="container-fluid" id="content_list">
         <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$config): $mod = ($i % 2 );++$i;?><div class="row noticeList">
-            <a href="<?php echo U('Document/detail?id='.$config['id']);?>">
-                <div class="col-xs-2">
-                    <img class="noticeImg" src="<?php echo ($config["path"]); ?>" />
-                </div>
-                <div class="col-xs-10">
-                    <p class="title"><?php echo ($config["title"]); ?></p>
-                    <p class="intro"><?php echo ($config["description"]); ?></p>
-                    <p class="info">浏览: <?php echo ($config["view"]); ?><span class="pull-right"><?php echo (date('Y-m-d G:i:s',$config["create_time"])); ?></span> </p>
-                </div>
-            </a>
-        </div><?php endforeach; endif; else: echo "" ;endif; ?>
+                <a href="<?php echo U('Activity/detail?id='.$config['id']);?>">
+                    <div class="col-xs-2">
+                        <img class="noticeImg" src="<?php echo ($config["path"]); ?>" />
+                    </div>
+                    <div class="col-xs-10">
+                        <p class="title"><?php echo ($config["title"]); ?></p>
+                        <p class="intro"><?php echo ($config["description"]); ?></p>
+                        <p class="info">浏览: <?php echo ($config["view"]); ?><span class="pull-right"><?php echo (date('Y-m-d G:i:s',$config["create_time"])); ?></span> </p>
+                    </div>
+                </a>
+            </div><?php endforeach; endif; else: echo "" ;endif; ?>
     </div>
     <div class="text-center">
         <button type="button" class="btn btn-info ajax-page">获取跟多~~~</button>
@@ -65,7 +65,6 @@
 <script src="Public/Wechat/jquery-1.11.2.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="Public/Wechat/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/Public/Wechat/js/my.js"></script>
 <script type="application/javascript">
     var p = 1;
     var url = '/wechat.php?s=/Activity/index';
@@ -81,7 +80,6 @@
                 $.get(url+'/p/'+p,function(response){
                     if(response.length){
                         html = '';
-                        console.debug('a');
                         $(response).each(function(i,v){
                             html += '<div class="row noticeList">\
                                             <a href="'+inner_url+'/id/'+v.id+'">\
@@ -106,6 +104,5 @@
 
     });
 </script>
-
 </body>
 </html>
