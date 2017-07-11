@@ -1,0 +1,33 @@
+[ 2017-07-10T14:22:58+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000443s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.009187s ]
+INFO: [ app_init ] --END-- [ RunTime:0.014090s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001462s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004114s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.0063s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE `status` = 1  [ RunTime:0.0007s ]
+
+[ 2017-07-10T14:23:33+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000414s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.006855s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011076s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001742s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004148s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.0064s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE `status` = 1  [ RunTime:0.0009s ]
+
+[ 2017-07-10T14:23:43+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000414s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.007197s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011612s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001758s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004239s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.0060s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE `status` = 1  [ RunTime:0.0007s ]
+

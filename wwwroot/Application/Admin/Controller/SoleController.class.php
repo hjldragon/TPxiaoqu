@@ -9,15 +9,23 @@
 namespace Admin\Controller;
 
 
+use Think\Page;
+
 class SoleController extends AdminController
 {
         public  function index(){
 
-            /* 获取频道列表 */
+            /* 获取小区租售列表 */
 
-            $list = M('Sole')->select();
-            $list = $this->parseDocumentList($list);
-            $this->assign('list', $list);
+            $list_page = M('Sole');
+            import('ORG.Util.Page');// 导入分页类
+            $count = $list_page->count();// 查询满足要求的总记录数
+            $page = new Page($count,2);// 实例化分页类 传入总记录数和每页显示的记录数
+            $page->setConfig('header','条信息');
+            $show = $page->show();// 分页显示输出
+            $this->assign('page',$show);// 赋值分页输出
+            $list  = $list_page->limit($page->firstRow.','.$page->listRows)->select();
+            $this->assign('list',$list);// 赋值数据集
             $this->meta_title = '小区租售';
             $this->display();
         }
@@ -95,5 +103,6 @@ class SoleController extends AdminController
             $this->display();
         }
     }
+
 
 }

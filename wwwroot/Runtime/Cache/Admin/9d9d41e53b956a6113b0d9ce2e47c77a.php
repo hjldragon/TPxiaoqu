@@ -131,12 +131,13 @@
                         <td><?php echo ($config["title"]); ?></td>
                         <td><?php echo $config['type']?'销售':'出租';?></td>
                         <td><?php echo ($config["price"]); echo $config['unit']?'万元':'月/元';?></td>
-                        <td><?php echo ($config["create_time"]); ?></td>
+                        <td><?php echo date('Y-m-d G:i:s',$config['create_time'])?></td>
                         <td><?php echo date('Y-m-d G:i:s',$config['clone_time'])?></td>
                         <td><?php echo ($config["status"]); ?></td>
                         <td>
                             <a title="编辑" href="<?php echo U('edit?id='.$config['id']);?>">编辑</a>
                             <a class="confirm ajax-get" title="删除" href="<?php echo U('del?id='.$config['id']);?>">删除</a>
+                            <a title="启用" href="<?php echo U('status?id='.$config['id']);?>">启用</a>
                         </td>
                     </tr><?php endforeach; endif; else: echo "" ;endif; ?>
                 <?php else: ?>
@@ -144,9 +145,7 @@
             </tbody>
         </table>
         <!-- 分页 -->
-        <div class="page">
-            <?php echo ($_page); ?>
-        </div>
+        <div class="result page"><?php echo ($page); ?></div>
     </div>
 
         </div>
@@ -262,23 +261,6 @@
                 if(e.keyCode === 13){
                     $("#search").click();
                     return false;
-                }
-            });
-            //点击排序
-            $('.list_sort').click(function(){
-                var url = $(this).attr('url');
-                var ids = $('.ids:checked');
-                var param = '';
-                if(ids.length > 0){
-                    var str = new Array();
-                    ids.each(function(){
-                        str.push($(this).val());
-                    });
-                    param = str.join(',');
-                }
-
-                if(url != undefined && url != ''){
-                    window.location.href = url + '/ids/' + param;
                 }
             });
         });
